@@ -1,0 +1,12 @@
+apiVersion: autoscaling/v1
+kind: HorizontalPodAutoscaler
+metadata: 
+  name: experimental-autoscaler
+spec:
+  maxReplicas: 20
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 50
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: experimental-deployment

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: experimental-deployment
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: experimental
+        tier: experimental-deployment
+    spec:
+      containers:
+      - name: experimental
+        image: centos:7
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+        ports:
+        - containerPort: 8081
